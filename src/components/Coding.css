@@ -1,0 +1,72 @@
+.coding {
+  padding: 2rem;
+  text-align: center;
+}
+
+.coding h2 {
+  font-size: 1.5rem; /* Reduced font size */
+  margin-bottom: 1rem;
+}
+
+.coding p {
+  font-size: 1rem; /* Reduced font size */
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.coding-link {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.coding-link:hover {
+  text-decoration: underline;
+}
+
+.github-stats {
+  margin-top: 2rem;
+}
+
+.github-stats h3 {
+  font-size: 1.2rem; /* Reduced font size */
+  margin-bottom: 0.5rem;
+}
+
+.github-stats p {
+  font-size: 0.9rem; /* Reduced font size */
+  color: #555;
+}
+
+.github-contributions-chart {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.badge-container {
+  margin-top: 2rem;
+}
+
+.badge {
+  max-width: 100%;
+  height: auto;
+}
+
+.badge-tooltip {
+  font-size: 0.9rem; /* Reduced font size */
+  color: #555;
+  margin-top: 1rem;
+}
+
+.leetcode-contributions h3 {
+  font-size: 1.2rem; /* Reduced font size */
+  margin-top: 2rem;
+}
+
+.leetcode-contributions-chart {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+}

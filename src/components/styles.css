@@ -1,4 +1,8 @@
-/* Global styles */
+/* ---------- Global Resets & Fonts ---------- */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -9,22 +13,33 @@ body {
     background-size: cover;
     color: #2c3e50;
 }
-.section {
-    padding: 40px 2rem 30px;
-    scroll-margin-top: 50px;
+
+/* ---------- CSS Variables for Consistency ---------- */
+:root {
+    --primary-color: #764ba2;
+    --secondary-color: #667eea;
+    --light-color: #ffffff;
+    --dark-text: #2c3e50;
+    --light-gray: #e0e0e0;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* ---------- Common Section Layout ---------- */
+.section {
+    padding: 40px 2rem 30px;
+    scroll-margin-top: 60px;
+}
 
-/* Section heading styles */
+/* ---------- Typography ---------- */
 h1, h2, h3 {
-    color: #2c3e50;
+    color: var(--dark-text);
     margin-bottom: 1rem;
 }
 
-/* Hero section with gradient and overlay */
+/* ---------- Hero Section ---------- */
 .hero {
     text-align: center;
-    background: linear-gradient(to right, #667eea, #764ba2);
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
     color: white;
     padding: 8rem 1rem;
     background-position: center;
@@ -55,8 +70,8 @@ h1, h2, h3 {
 }
 
 .hero .btn {
-    background-color: #ffffff;
-    color: #764ba2;
+    background-color: var(--light-color);
+    color: var(--primary-color);
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 30px;
@@ -64,17 +79,17 @@ h1, h2, h3 {
     text-decoration: none;
     margin-top: 1.5rem;
     display: inline-block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     transition: all 0.3s ease;
 }
 
 .hero .btn:hover {
-    background-color: #764ba2;
-    color: #ffffff;
+    background-color: var(--primary-color);
+    color: var(--light-color);
     transform: scale(1.05);
 }
 
-/* Skills list styling */
+/* ---------- Skills List ---------- */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
@@ -84,22 +99,28 @@ h1, h2, h3 {
 }
 
 .skills-list li {
-    background-color: #e0e0e0;
+    background-color: var(--light-gray);
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: bold;
-    color: #2c3e50;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: var(--dark-text);
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s ease;
 }
 
-/* Project cards styling */
+.skills-list li:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* ---------- Project Cards ---------- */
 .project-card {
     padding: 1.5rem;
     border: 1px solid #dcdcdc;
     border-radius: 8px;
     margin: 1rem 0;
-    background-color: #ffffff;
+    background-color: var(--light-color);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
@@ -116,4 +137,51 @@ h1, h2, h3 {
 
 .project-card a:hover {
     text-decoration: underline;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Add this class to elements for entry animation */
+/* Add to top or bottom of styles.css */
+:root {
+    --primary-color: #764ba2;
+    --secondary-color: #667eea;
+    --bg-color: #f4f4f9;
+    --text-color: #2c3e50;
+    --card-bg: #ffffff;
+    --skill-bg: #e0e0e0;
+}
+
+[data-theme='dark'] {
+    --primary-color: #764ba2;
+    --secondary-color: #667eea;
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --skill-bg: #333333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.project-card,
+.skills-list li {
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }

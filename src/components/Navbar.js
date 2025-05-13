@@ -1,12 +1,11 @@
-// src/components/Navbar.js
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import ThemeToggle from './ThemeToggle'; // ✅ Add this
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
@@ -24,9 +23,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">Hariharan</div>
 
-      <div className="hamburger" onClick={toggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </div>
+     
 
       <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
         {links.map(({ id, label }) => (

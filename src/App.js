@@ -8,10 +8,16 @@ import Certifications from './components/Certifications';
 import Coding from './components/Coding';
 import Contact from './components/Contact';
 import './components/styles.css';
+
+import ThemeToggle from './components/ThemeToggle';
+
 function App() {
   return (
     <>
       <Navbar />
+       <br/>
+       <br/>
+       <br/>
       <div className="section" id="home"><Hero /></div>
       <div className="section" id="about"><About /></div>
       <div className="section" id="skills"><Skills /></div>
