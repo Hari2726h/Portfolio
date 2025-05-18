@@ -1,0 +1,146 @@
+.hero {
+  background: #1a1c22;
+  color: #fff;
+  padding: 8rem 2rem 6rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;  /* full viewport height */
+  font-family: 'Fira Code', monospace;
+}
+.hero {
+  padding: 0;
+  /* or something smaller */
+}
+/* Add this globally (in your global CSS or at the top) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Or at least reset on body and html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.hero {
+  margin-top: 0;  /* or adjust */
+  padding-top: 0; /* if needed */
+}
+
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.tech-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.tech-icons img:hover {
+  transform: scale(1.2);
+}
+
+.dev-quote {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #eee;
+  font-size: 1rem;
+}
+
+.welcome-text {
+  font-size: 1.5rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+.code-wrapper {
+  background-color: #1a1c22;
+  padding: 1.2rem 1.5rem; /* reduced padding */
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  max-width: 400px; /* reduced max width */
+  width: 100%;
+  font-size: 1.2rem; /* slightly smaller font */
+  line-height: 1.6rem; /* slightly smaller line height */
+}
+
+
+.tag {
+  color: #c792ea;
+}
+
+.var {
+  color: #82aaff;
+}
+
+.property {
+  color: #addb67;
+}
+
+.string {
+  color: #ecc48d;
+}
+
+.bracket {
+  color: #fff;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero .btn {
+  margin-top: 2rem;
+  background-color: #764ba2;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.hero .btn:hover {
+  background-color: #5f379d;
+  transform: scale(1.05);
+}
+
+.scroll-indicator {
+  margin-top: 3rem;
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+  color: #fff;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}

@@ -1,0 +1,148 @@
+/* Projects Section */
+.projects {
+  padding: 100px 20px 60px;
+  text-align: center;
+  scroll-margin-top: 120px;
+}
+
+.projects h2 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Filter Buttons (optional styling) */
+.filter-buttons {
+  margin-bottom: 2rem;
+}
+
+.filter-buttons button {
+  margin: 0 10px;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Project Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Project Card */
+.project-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  opacity: 0.8;
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin: 0.5rem 0;
+}
+
+.project-card p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.project-card a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.modal-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.modal-content button {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}

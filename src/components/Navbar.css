@@ -1,0 +1,124 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #6a11cb;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  padding-top: 100px; /* Pushes all content down */
+}
+main,
+.container {
+  padding-top: 100px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #6a11cb;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-links li a:hover,
+.navbar-links li a.active {
+  color: #6a11cb;
+}
+
+.navbar-links li a .underline {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 3px;
+  width: 0;
+  border-radius: 4px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  transition: width 0.4s ease;
+}
+
+.navbar-links li a:hover .underline,
+.navbar-links li a.active .underline {
+  width: 100%;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  .navbar-links.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 1rem 0;
+  }
+
+  .navbar-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar-links li a:hover,
+.navbar-links li a.active {
+  color: #6a11cb;
+}
+
+.navbar-links li a:hover .underline,
+.navbar-links li a.active .underline {
+  width: 100%;
+}

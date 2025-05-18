@@ -1,0 +1,85 @@
+.coding {
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.coding h2 {
+  font-size: 2.8rem;       /* same as .skills h2 */
+  font-weight: bold;       /* same as .skills h2 */
+  color: #2c2c2c;          /* same dark gray */
+  margin-bottom: 40px;     /* same spacing */
+}
+
+.coding p {
+  font-size: 0.9rem;       /* match skill-info p */
+  font-weight: 500;        /* match skill-info p */
+  color: #555;             /* same medium gray */
+  margin-bottom: 1rem;
+}
+
+.coding-link {
+  color: #007bff;          /* same blue */
+  font-weight: 600;        /* to make links stand out */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.coding-link:hover {
+  color: #0056b3;          /* same darker blue hover */
+  text-decoration: underline;
+}
+
+.github-stats {
+  margin-top: 2rem;
+}
+
+.github-stats h3 {
+  font-size: 1.1rem;       /* slightly bigger, close to skill-info h3 */
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.github-stats p {
+  font-size: 0.9rem;       /* match coding p */
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.github-contributions-chart {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.badge-container {
+  margin-top: 2rem;
+}
+
+.badge {
+  max-width: 100%;
+  height: auto;
+}
+
+.badge-tooltip {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.leetcode-contributions h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #007bff;
+  margin-top: 2rem;
+}
+
+.leetcode-contributions-chart {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+}

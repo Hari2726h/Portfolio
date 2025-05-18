@@ -1,0 +1,105 @@
+.certifications-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-margin-top: 100px;
+}
+
+.certifications-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #2c2c2c; /* same as skills h2 */
+  margin-bottom: 40px;
+}
+
+.cert-badge {
+  /* background: #007bff; same blue */
+  color: black;
+  padding: 8px 14px;
+  /* border-radius: 999px; */
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  /* box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4); */
+}
+
+.cert-content {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555; /* same as skill-info p */
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.download-btn-glass {
+  text-decoration: none;
+  background: #007bff; /* match skills button blue */
+  color: white;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.download-btn-glass:hover {
+  background: #0056b3; /* same hover color as skills buttons */
+}
+
+
+.certifications-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+  overflow-x: visible; /* Changed to visible to wrap like skills */
+}
+
+.cert-card-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  padding: 15px;        /* reduced padding */
+  width: 220px;         /* smaller width */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cert-image-glass {
+  width: 100%;
+  height: 130px;        /* smaller height */
+  object-fit: cover;
+  border-radius: 18px;
+  border: 2px solid rgba(0, 123, 255, 0.2);
+  transition: opacity 0.3s ease;
+  margin-bottom: 14px;
+}
+
+
+.cert-card-glass:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+.cert-card-glass:hover .cert-image-glass {
+  opacity: 0.85;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .certifications-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
