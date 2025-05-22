@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Skills.css';
 
-// Add the logo path for each skill
 const skillsData = [
   { name: 'Java', category: 'Backend', experience: 3, progress: 70, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/java.svg' },
   { name: 'Spring Boot', category: 'Backend', experience: 2, progress: 60, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/springboot.svg' },
   { name: 'React', category: 'Frontend', experience: 2, progress: 80, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg' },
-  // { name: 'Axios', category: 'Frontend', experience: 1, progress: 50, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/axios.svg' },
   { name: 'REST API', category: 'Backend', experience: 3, progress: 75, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/api.svg' },
   { name: 'HTML', category: 'Frontend', experience: 5, progress: 90, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/html5.svg' },
   { name: 'CSS', category: 'Frontend', experience: 4, progress: 80, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/css3.svg' },
@@ -18,24 +16,51 @@ const skillsData = [
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  // Filter skills based on selected category
   const filteredSkills = selectedCategory === 'All'
     ? skillsData
     : skillsData.filter(skill => skill.category === selectedCategory);
 
   return (
-    <section className="skills">
-      <h2>Skills</h2>
+    <section className="skills" id="skills">
+      {/* Heading Animation */}
+      <motion.h2
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        style={{
+          fontSize: '2.8rem',
+          fontWeight: 'bold',
+          color: '#6a11cb',
+          marginBottom: '40px',
+          textAlign: 'center',
+        }}
+      >
+        Skills
+      </motion.h2>
 
-      {/* Category Filter */}
-      <div className="filter-buttons">
+      {/* Filter Buttons Animation */}
+      <motion.div
+        className="filter-buttons"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
         <button onClick={() => setSelectedCategory('All')}>All</button>
         <button onClick={() => setSelectedCategory('Frontend')}>Frontend</button>
         <button onClick={() => setSelectedCategory('Backend')}>Backend</button>
         <button onClick={() => setSelectedCategory('Tools')}>Tools</button>
-      </div>
+      </motion.div>
 
-      <div className="skills-list">
+      {/* Skills Grid Animation */}
+      <motion.div
+        className="skills-list"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
         {filteredSkills.map((skill, index) => (
           <motion.div
             key={index}
@@ -53,7 +78,7 @@ const Skills = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

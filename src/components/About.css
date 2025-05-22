@@ -1,8 +1,10 @@
 /* Gradient background for the about section */
 .about.section {
-  padding: 100px 20px 60px;
+  padding: 100px 0px 60px;
+  /* Optional gradient: uncomment if needed */
   /* background: linear-gradient(to right, #e0c3fc, #8ec5fc); */
-  scroll-margin-top: 120px;
+  scroll-margin-top: 20px;
+  background-color: #f9f9ff; /* subtle light background */
 }
 
 /* Intro animation and text */
@@ -14,8 +16,9 @@
 .about-title {
   font-size: 2.8rem;
   font-weight: bold;
-  color: #333;
+  color: #6a11cb; /* Updated to match dark theme */
   margin-bottom: 12px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .about-description {
@@ -30,22 +33,43 @@
 .timeline-title {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #2c2c2c;
+  color: #6a11cb; /* Match heading color */
+  margin-bottom: 6px;
 }
 
 .timeline-subtitle {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #555;
+  color: #333;
   margin-bottom: 10px;
 }
 
-/* Make timeline elements have hover pop effect */
+/* Timeline element content hover animation */
 .vertical-timeline-element-content {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
 }
 
 .vertical-timeline-element-content:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive padding (optional) */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+  }
+
+  .timeline-subtitle {
+    font-size: 1rem;
+  }
 }

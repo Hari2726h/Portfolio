@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-// import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const toggleMenu = () => setIsOpen(prev => !prev);
   const closeMenu = () => setIsOpen(false);
 
   const links = [
@@ -19,31 +19,40 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">Hariharan</div>
+    <>
+      <nav className="navbar">
+        <div className="navbar-logo">Hariharan</div>
 
-      {/* Hamburger Menu for Mobile */}
-      <div className="hamburger" onClick={toggleMenu}>
-        ☰
-      </div>
+        <button
+          className="hamburger"
+          onClick={toggleMenu}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+        >
+          {/* Hamburger icon changes to X when open */}
+          {isOpen ? '✕' : '☰'}
+        </button>
 
-      {/* Navbar Links */}
-      <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
-        {links.map(({ path, label }) => (
-          <li key={path}>
-            <NavLink
-              to={path}
-              className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMenu}
-              end={path === '/'} // exact for home
-            >
-              {label}
-              <span className="underline"></span>
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </nav>
+        <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
+          {links.map(({ path, label }) => (
+            <li key={path}>
+              <NavLink
+                to={path}
+                className={({ isActive }) => (isActive ? 'active' : '')}
+                onClick={closeMenu}
+                end={path === '/'}
+              >
+                {label}
+                <span className="underline"></span>
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Overlay to close sidebar when clicked outside */}
+      {isOpen && <div className="sidebar-overlay" onClick={closeMenu} />}
+    </>
   );
 };
 

@@ -1,85 +1,130 @@
+:root {
+  --cert-purple: #6a11cb;
+  --cert-blue: #2575fc;
+  --cert-gradient: linear-gradient(to right, var(--cert-purple), var(--cert-blue));
+  --cert-bg: linear-gradient(to right, #f3f0ff, #ffffff);
+  --cert-border: rgba(106, 17, 203, 0.25);
+  --cert-shadow: rgba(106, 17, 203, 0.15);
+  --cert-glow: rgba(106, 17, 203, 0.35);
+  --cert-text: #6a11cb;
+  --cert-font: 'Poppins', sans-serif;
+}
+
 .coding {
-  padding: 2rem;
+  padding: 80px 20px;
+  background: var(--cert-bg);
+  font-family: var(--cert-font);
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-margin-top: 100px;
 }
 
 .coding h2 {
-  font-size: 2.8rem;       /* same as .skills h2 */
-  font-weight: bold;       /* same as .skills h2 */
-  color: #2c2c2c;          /* same dark gray */
-  margin-bottom: 40px;     /* same spacing */
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--cert-text);
+  margin-bottom: 40px;
 }
 
 .coding p {
-  font-size: 0.9rem;       /* match skill-info p */
-  font-weight: 500;        /* match skill-info p */
-  color: #555;             /* same medium gray */
+  font-size: 1rem;
+  color: #333;
   margin-bottom: 1rem;
 }
 
 .coding-link {
-  color: #007bff;          /* same blue */
-  font-weight: 600;        /* to make links stand out */
+  color: var(--cert-purple);
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .coding-link:hover {
-  color: #0056b3;          /* same darker blue hover */
+  color: var(--cert-blue);
   text-decoration: underline;
 }
 
-.github-stats {
-  margin-top: 2rem;
+.github-stats,
+.leetcode-contributions {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid var(--cert-border);
+  box-shadow: 0 12px 30px var(--cert-shadow);
+  border-radius: 18px;
+  padding: 25px 20px;
+  margin: 25px auto;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.github-stats h3 {
-  font-size: 1.1rem;       /* slightly bigger, close to skill-info h3 */
-  font-weight: 600;
-  color: #007bff;
+.github-stats:hover,
+.leetcode-contributions:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 16px 40px var(--cert-glow);
+}
+
+.github-stats h3,
+.leetcode-contributions h3 {
+  color: var(--cert-text);
+  font-size: 1.6rem;
   margin-bottom: 10px;
 }
 
 .github-stats p {
-  font-size: 0.9rem;       /* match coding p */
-  font-weight: 500;
   color: #555;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  margin: 5px 0;
 }
 
-.github-contributions-chart {
+.github-stats-card,
+.github-streak-card,
+.leetcode-card {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 1rem;
+  max-width: 600px;
+  border-radius: 12px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 10px 25px var(--cert-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.github-stats-card:hover,
+.github-streak-card:hover,
+.leetcode-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 40px var(--cert-glow);
 }
 
 .badge-container {
-  margin-top: 2rem;
+  margin-top: 30px;
 }
 
 .badge {
-  max-width: 100%;
-  height: auto;
+  height: 40px;
+  transition: transform 0.3s ease;
 }
 
-.badge-tooltip {
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 1rem;
+.badge:hover {
+  transform: scale(1.1);
 }
 
-.leetcode-contributions h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #007bff;
-  margin-top: 2rem;
-}
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .coding h2 {
+    font-size: 2.2rem;
+  }
 
-.leetcode-contributions-chart {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 1rem;
+  .github-stats,
+  .leetcode-contributions {
+    padding: 20px 15px;
+  }
+
+  .github-stats-card,
+  .github-streak-card,
+  .leetcode-card {
+    width: 100%;
+  }
+
+  .badge {
+    height: 36px;
+  }
 }

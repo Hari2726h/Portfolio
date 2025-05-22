@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Projects.css'; // Make sure to add your custom styles
+import { motion } from 'framer-motion';
+import './Projects.css';
 
-// Sample project data
 const projects = [
   {
     title: "Fashion Rental Platform",
@@ -9,7 +9,6 @@ const projects = [
     link: "https://github.com/Hari2726h/FASHION_RESALE_PLATFORM-",
     category: "Backend",
     modalContent: "Detailed case study: Built a backend to handle product listings, user management, and rental transactions.",
-    image: "https://images.unsplash.com/photo-1602810313329-3e08c4f94d2e?auto=format&fit=crop&w=800&q=60", // Fashion items
   },
   {
     title: "Administrative Tool",
@@ -17,27 +16,22 @@ const projects = [
     link: "https://github.com/Hari2726h/StudentProfileManagement",
     category: "React",
     modalContent: "Detailed case study: Created an admin dashboard to manage student data, including attendance and grades.",
-    image: "https://images.unsplash.com/photo-1584697964403-b1216a89b261?auto=format&fit=crop&w=800&q=60", // Admin dashboard
   },
   {
     title: "Ecommerce Platform",
-    description: "This is a full-stack E-commerce Platform designed to support seamless buying and selling of products online.",
+    description: "Full-stack platform for seamless online buying/selling of products.",
     link: "https://github.com/Hari2726h/E-commerce-Platform",
     category: "Fullstack",
-    modalContent: "Detailed case study: It integrates a robust backend, dynamic frontend, and cloud storage to ensure performance, scalability, and user-friendly interaction.",
-    image: "https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=800&q=60", // E-commerce concept
+    modalContent: "Detailed case study: Integrated backend, dynamic frontend, and cloud storage for performance and scalability.",
   },
   {
     title: "Personal Finance Manager",
-    description: "This is a web application designed to help users efficiently track and manage their personal expenses and income.",
+    description: "Web app to efficiently track and manage personal expenses and income.",
     link: "https://github.com/Hari2726h/personalfinancemanager",
     category: "React",
-    modalContent: "Detailed case study: It focuses on simplicity, usability, and real-time data updates for a smooth financial tracking experience.",
-    image: "https://images.unsplash.com/photo-1556742400-b5d5aa4f23b6?auto=format&fit=crop&w=800&q=60", // Personal finance
+    modalContent: "Detailed case study: Real-time data updates and focus on usability for financial tracking.",
   }
 ];
-
-
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
@@ -58,45 +52,71 @@ const Projects = () => {
     setSelectedProject(null);
   };
 
-  // Filter projects based on category
   const filteredProjects = filter === 'All' ? projects : projects.filter(proj => proj.category === filter);
 
   return (
-    <section className="projects">
-      <h2>Projects</h2>
+    <section className="projects" id="projects">
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        style={{
+          fontSize: '2.8rem',
+          fontWeight: 'bold',
+          color: '#6a11cb',
+          marginBottom: '40px',
+          textAlign: 'center',
+        }}
+      >
+        Projects
+      </motion.h2>
 
-      {/* Filter buttons */}
-      <div className="filter-buttons">
+      {/* Filter Buttons */}
+      <motion.div
+        className="filter-buttons"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
         <button onClick={() => handleFilterChange('All')}>All</button>
         <button onClick={() => handleFilterChange('React')}>Frontend</button>
         <button onClick={() => handleFilterChange('Fullstack')}>Fullstack</button>
         <button onClick={() => handleFilterChange('Backend')}>Backend</button>
-      </div>
+      </motion.div>
 
-      {/* Projects grid */}
-      <div className="projects-grid">
+      {/* Projects Grid */}
+      <motion.div
+        className="projects-grid"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
         {filteredProjects.map((proj, index) => (
-          <div
+          <motion.div
             key={index}
             className="project-card"
             onClick={() => handleOpenModal(proj)}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 * index }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.03 }}
           >
-            <img
-              src={proj.image}
-              alt={proj.title}
-              className="project-image"
-            />
             <h3>{proj.title}</h3>
             <p>{proj.description}</p>
             <a href={proj.link} target="_blank" rel="noreferrer">View on GitHub</a>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Modal for detailed case study */}
-      {modalVisible && (
-        <div className="modal">
-          <div className="modal-content">
+      {/* Modal */}
+      {modalVisible && selectedProject && (
+        <div className="modal" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
             <h3>{selectedProject.title}</h3>
             <p>{selectedProject.modalContent}</p>
             <button onClick={handleCloseModal}>Close</button>

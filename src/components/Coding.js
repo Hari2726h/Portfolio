@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 import "./Coding.css";
 
 const Coding = () => {
@@ -21,10 +22,24 @@ const Coding = () => {
 
   return (
     <section className="coding">
-      <h2>Coding Profiles</h2>
+      {/* Animated heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Coding Profiles
+      </motion.h2>
 
-      {/* LeetCode Profile */}
-      <p>
+      {/* GitHub Link */}
+      <motion.p
+        className="coding-link-container"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
         <span role="img" aria-label="developer">👨‍💻</span> GitHub:{" "}
         <a
           href="https://github.com/Hari2726h"
@@ -34,39 +49,53 @@ const Coding = () => {
         >
           Hari2726H
         </a>
-      </p>
+      </motion.p>
 
       {/* GitHub Stats */}
       {githubStats && (
-        <div className="github-stats">
+        <motion.div
+          className="github-stats"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           <h3>{githubStats.name}</h3>
-          <p>
-            <span role="img" aria-label="star">🌟</span> {githubStats.public_repos} Repositories
-          </p>
-          <p>
-            <span role="img" aria-label="fork">🍴</span> {githubStats.public_gists} Gists
-          </p>
-          <p>
-            <span role="img" aria-label="telescope">🔭</span> {githubStats.bio}
-          </p>
-        </div>
+          <p>🌟 {githubStats.public_repos} Repositories</p>
+          <p>🍴 {githubStats.public_gists} Gists</p>
+          <p>🔭 {githubStats.bio}</p>
+        </motion.div>
       )}
 
       {/* GitHub Readme Stats */}
-      <img
+      <motion.img
         src={`https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&theme=radical`}
         alt="GitHub Stats"
         className="github-stats-card"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        viewport={{ once: true }}
       />
 
-      <img
+      <motion.img
         src={`https://github-readme-streak-stats.herokuapp.com/?user=${githubUsername}&theme=radical`}
         alt="GitHub Streak"
         className="github-streak-card"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        viewport={{ once: true }}
       />
 
       {/* LeetCode Badge */}
-      <div className="badge-container">
+      <motion.div
+        className="badge-container"
+        initial={{ scale: 0.9, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 120, delay: 0.4 }}
+        viewport={{ once: true }}
+      >
         <a
           href="https://leetcode.com/Hari2726H"
           target="_blank"
@@ -78,17 +107,23 @@ const Coding = () => {
             className="badge"
           />
         </a>
-      </div>
+      </motion.div>
 
-      {/* LeetCode Contributions Chart */}
-      <div className="leetcode-contributions">
+      {/* LeetCode Contributions */}
+      <motion.div
+        className="leetcode-contributions"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h3>LeetCode Contributions</h3>
         <img
           src="https://leetcard.jacoblin.cool/Hari2726H?ext=contest"
           alt="LeetCode Card"
           className="leetcode-card"
         />
-      </div>
+      </motion.div>
     </section>
   );
 };
