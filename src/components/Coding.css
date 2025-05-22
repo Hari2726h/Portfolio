@@ -11,10 +11,10 @@
 }
 
 .coding {
+  text-align: center;
   padding: 80px 20px;
   background: var(--cert-bg);
   font-family: var(--cert-font);
-  text-align: center;
   scroll-margin-top: 100px;
 }
 
@@ -25,106 +25,67 @@
   margin-bottom: 40px;
 }
 
-.coding p {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 1rem;
+.coding-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
 }
 
-.coding-link {
-  color: var(--cert-purple);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.coding-link:hover {
-  color: var(--cert-blue);
-  text-decoration: underline;
-}
-
-.github-stats,
-.leetcode-contributions {
+.coding-profile-card {
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(14px);
   border: 1.5px solid var(--cert-border);
   box-shadow: 0 12px 30px var(--cert-shadow);
   border-radius: 18px;
   padding: 25px 20px;
-  margin: 25px auto;
-  max-width: 600px;
+  width: 280px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
-.github-stats:hover,
-.leetcode-contributions:hover {
-  transform: translateY(-5px) scale(1.03);
+.coding-profile-card:hover {
+  transform: translateY(-5px) scale(1.05);
   box-shadow: 0 16px 40px var(--cert-glow);
 }
 
-.github-stats h3,
-.leetcode-contributions h3 {
-  color: var(--cert-text);
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-
-.github-stats p {
-  color: #555;
-  font-size: 1rem;
-  margin: 5px 0;
-}
-
-.github-stats-card,
-.github-streak-card,
-.leetcode-card {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 12px;
-  margin: 20px auto;
-  display: block;
-  box-shadow: 0 10px 25px var(--cert-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.github-stats-card:hover,
-.github-streak-card:hover,
-.leetcode-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 16px 40px var(--cert-glow);
-}
-
-.badge-container {
-  margin-top: 30px;
-}
-
-.badge {
-  height: 40px;
+.coding-profile-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 5px var(--cert-purple));
   transition: transform 0.3s ease;
 }
 
-.badge:hover {
-  transform: scale(1.1);
+.coding-profile-card:hover img {
+  transform: scale(1.15);
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .coding h2 {
-    font-size: 2.2rem;
-  }
+.coding-profile-card h3 {
+  font-size: 1.4rem;
+  color: var(--cert-text);
+  margin-bottom: 10px;
+}
 
-  .github-stats,
-  .leetcode-contributions {
-    padding: 20px 15px;
-  }
+.coding-profile-card p {
+  font-size: 0.95rem;
+  color: #333;
+}
 
-  .github-stats-card,
-  .github-streak-card,
-  .leetcode-card {
-    width: 100%;
-  }
+.leetcode-contributions {
+  margin-top: 40px;
+}
 
-  .badge {
-    height: 36px;
-  }
+.leetcode-contributions h3 {
+  color: var(--cert-text);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }

@@ -1,30 +1,40 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { motion } from "framer-motion";
-import "./Coding.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import './Coding.css';
+
+const codingProfiles = [
+  {
+    name: 'GitHub',
+    description: 'Open source projects and contributions',
+    logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg',
+    link: 'https://github.com/Hari2726h',
+  },
+  {
+    name: 'LeetCode',
+    description: 'Problem solving and contest ranking',
+    logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/leetcode.svg',
+    link: 'https://leetcode.com/Hari2726H',
+  },
+  {
+    name: 'GeeksforGeeks',
+    description: 'DSA practice and coding articles',
+    logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/geeksforgeeks.svg',
+    link: 'https://www.geeksforgeeks.org/user/hari2qi5b/',
+  },
+  {
+    name: 'Coding Ninjas / Code360',
+    description: 'Coding challenges and progress tracking',
+    logo: 'https://ninjasfiles.s3.amazonaws.com/0000000000000723.jpg',
+    link: 'https://www.naukri.com/code360/profile/55dbb5cb-84d8-43b5-8fbf-82b55b749994',
+  },
+];
 
 const Coding = () => {
-  const [githubStats, setGithubStats] = useState(null);
-  const githubUsername = "Hari2726h";
-
-  useEffect(() => {
-    const fetchGitHubStats = async () => {
-      try {
-        const response = await axios.get(`https://api.github.com/users/${githubUsername}`);
-        setGithubStats(response.data);
-      } catch (error) {
-        console.error("Error fetching GitHub stats", error);
-      }
-    };
-
-    fetchGitHubStats();
-  }, []);
-
   return (
-    <section className="coding">
-      {/* Animated heading */}
+    <section className="coding" id="coding">
+      {/* Heading Animation */}
       <motion.h2
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
@@ -32,96 +42,44 @@ const Coding = () => {
         Coding Profiles
       </motion.h2>
 
-      {/* GitHub Link */}
-      <motion.p
-        className="coding-link-container"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
-        <span role="img" aria-label="developer">👨‍💻</span> GitHub:{" "}
-        <a
-          href="https://github.com/Hari2726h"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="coding-link"
-        >
-          Hari2726H
-        </a>
-      </motion.p>
-
-      {/* GitHub Stats */}
-      {githubStats && (
-        <motion.div
-          className="github-stats"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <h3>{githubStats.name}</h3>
-          <p>🌟 {githubStats.public_repos} Repositories</p>
-          <p>🍴 {githubStats.public_gists} Gists</p>
-          <p>🔭 {githubStats.bio}</p>
-        </motion.div>
-      )}
-
-      {/* GitHub Readme Stats */}
-      <motion.img
-        src={`https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&theme=radical`}
-        alt="GitHub Stats"
-        className="github-stats-card"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
-      />
-
-      <motion.img
-        src={`https://github-readme-streak-stats.herokuapp.com/?user=${githubUsername}&theme=radical`}
-        alt="GitHub Streak"
-        className="github-streak-card"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        viewport={{ once: true }}
-      />
-
-      {/* LeetCode Badge */}
+      {/* Profiles Grid */}
       <motion.div
-        className="badge-container"
-        initial={{ scale: 0.9, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 120, delay: 0.4 }}
+        className="coding-profiles"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <a
-          href="https://leetcode.com/Hari2726H"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="https://img.shields.io/badge/LeetCode-Hari2726H-orange?style=for-the-badge&logo=leetcode"
-            alt="LeetCode Badge"
-            className="badge"
-          />
-        </a>
+        {codingProfiles.map((profile, index) => (
+          <motion.a
+            key={index}
+            href={profile.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="coding-profile-card"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 200 }}
+          >
+            <img src={profile.logo} alt={`${profile.name} logo`} />
+            <h3>{profile.name}</h3>
+            <p>{profile.description}</p>
+          </motion.a>
+        ))}
       </motion.div>
 
-      {/* LeetCode Contributions */}
+      {/* LeetCode Stats Card */}
       <motion.div
         className="leetcode-contributions"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
         viewport={{ once: true }}
       >
         <h3>LeetCode Contributions</h3>
         <img
           src="https://leetcard.jacoblin.cool/Hari2726H?ext=contest"
-          alt="LeetCode Card"
-          className="leetcode-card"
+          alt="LeetCode Stats"
+          style={{ maxWidth: '100%' }}
         />
       </motion.div>
     </section>

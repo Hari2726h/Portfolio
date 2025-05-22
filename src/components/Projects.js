@@ -25,6 +25,14 @@ const projects = [
     modalContent: "Detailed case study: Integrated backend, dynamic frontend, and cloud storage for performance and scalability.",
   },
   {
+  title: "Portfolio",
+  description: "Personal portfolio website showcasing projects, skills, and experience.",
+  link: "https://github.com/Hari2726h/Portfolio",
+  category: "Fullstack",
+  modalContent: "Comprehensive showcase of frontend design, responsive UI, and integration with external APIs to highlight coding profiles and achievements."
+},
+
+  {
     title: "Personal Finance Manager",
     description: "Web app to efficiently track and manage personal expenses and income.",
     link: "https://github.com/Hari2726h/personalfinancemanager",

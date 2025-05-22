@@ -3,14 +3,24 @@ import { motion } from 'framer-motion';
 import './Skills.css';
 
 const skillsData = [
+  // Backend & Programming Languages
   { name: 'Java', category: 'Backend', experience: 3, progress: 70, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/java.svg' },
   { name: 'Spring Boot', category: 'Backend', experience: 2, progress: 60, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/springboot.svg' },
-  { name: 'React', category: 'Frontend', experience: 2, progress: 80, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg' },
+  { name: 'MySQL', category: 'Backend', experience: 2, progress: 65, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/mysql.svg' },
   { name: 'REST API', category: 'Backend', experience: 3, progress: 75, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/api.svg' },
+  { name: 'C++', category: 'Backend', experience: 1, progress: 50, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/cplusplus.svg' },
+
+  // Frontend
+  { name: 'React', category: 'Frontend', experience: 2, progress: 80, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg' },
   { name: 'HTML', category: 'Frontend', experience: 5, progress: 90, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/html5.svg' },
   { name: 'CSS', category: 'Frontend', experience: 4, progress: 80, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/css3.svg' },
-  { name: 'MySQL', category: 'Backend', experience: 2, progress: 65, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/mysql.svg' },
+
+  // Tools
+  { name: 'VS Code', category: 'Tools', experience: 4, progress: 85, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/visualstudiocode.svg' },
   { name: 'GitHub', category: 'Tools', experience: 4, progress: 85, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg' },
+  { name: 'Eclipse', category: 'Tools', experience: 3, progress: 70, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/eclipseide.svg' },
+  { name: 'AWS', category: 'Tools', experience: 1, progress: 50, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/amazonaws.svg' },
+  { name: 'Figma', category: 'Tools', experience: 2, progress: 60, logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/figma.svg' },
 ];
 
 const Skills = () => {
@@ -39,7 +49,7 @@ const Skills = () => {
         Skills
       </motion.h2>
 
-      {/* Filter Buttons Animation */}
+      {/* Filter Buttons */}
       <motion.div
         className="filter-buttons"
         initial={{ opacity: 0, y: 20 }}
@@ -53,7 +63,7 @@ const Skills = () => {
         <button onClick={() => setSelectedCategory('Tools')}>Tools</button>
       </motion.div>
 
-      {/* Skills Grid Animation */}
+      {/* Skills Grid */}
       <motion.div
         className="skills-list"
         initial={{ opacity: 0, scale: 0.95 }}
