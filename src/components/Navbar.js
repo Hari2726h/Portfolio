@@ -18,10 +18,10 @@ const Navbar = () => {
     { href: '#contact', label: 'Contact' },
   ];
 
-  // Scroll handler to set active link
+  // Scroll handler to set active link based on section in viewport
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY + 120; // Adjust based on your navbar height
+      const scrollY = window.scrollY + 120; // Adjust offset for navbar height
 
       let current = '';
       for (const { href } of links) {
@@ -38,7 +38,7 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Run on mount
+    handleScroll(); // call once on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -72,6 +72,7 @@ const Navbar = () => {
         </ul>
       </nav>
 
+      {/* Overlay to close sidebar when clicking outside */}
       {isOpen && <div className="sidebar-overlay open" onClick={closeMenu} />}
     </>
   );
