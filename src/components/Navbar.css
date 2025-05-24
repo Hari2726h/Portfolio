@@ -1,4 +1,4 @@
-/* Reset and base font */
+/* Reset */
 * {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -15,7 +15,7 @@ main,
   padding-top: 100px;
 }
 
-/* Navbar */
+/* Navbar base */
 .navbar {
   position: fixed;
   top: 0;
@@ -48,23 +48,25 @@ main,
   background: none;
   border: none;
   transition: color 0.3s ease;
+  z-index: 1201; /* Above everything */
+  position: relative;
 }
 
 .hamburger:hover {
   color: #4b0082;
 }
 
-/* Desktop Links */
+/* Desktop navbar links */
 .navbar-links {
   list-style: none;
   display: flex;
   gap: 2.5rem;
   align-items: center;
+  transition: transform 0.3s ease;
 }
 
 .navbar-links li {
   position: relative;
-  
   margin: 0.5rem 0;
 }
 
@@ -76,6 +78,7 @@ main,
   padding: 0.5rem 0;
   transition: color 0.3s ease;
   display: inline-block;
+  user-select: none;
 }
 
 .navbar-links li a:hover,
@@ -99,7 +102,7 @@ main,
   width: 100%;
 }
 
-/* Sidebar Animations */
+/* Sidebar animation */
 @keyframes slideInSidebar {
   0% {
     transform: translateX(100%);
@@ -111,13 +114,14 @@ main,
   }
 }
 
-/* Mobile Sidebar */
+/* MOBILE */
 @media screen and (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .navbar-links {
+    flex-direction: column;
     position: fixed;
     top: 0;
     right: 0;
@@ -127,17 +131,19 @@ main,
     background: linear-gradient(to bottom right, #ffffff, #f3f3ff);
     backdrop-filter: blur(14px);
     box-shadow: -2px 0 20px rgba(106, 17, 203, 0.15);
-    flex-direction: column;
     padding: 3rem 1.5rem;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     overflow-y: auto;
     z-index: 1100;
+    pointer-events: none; /* disable clicks by default */
+    display: flex;
   }
 
   .navbar-links.open {
     transform: translateX(0);
     animation: slideInSidebar 0.4s ease-out forwards;
+    pointer-events: auto; /* enable clicks */
   }
 
   .navbar-links li {
@@ -153,6 +159,7 @@ main,
     width: 100%;
     transition: background 0.3s, transform 0.2s;
     border-radius: 6px;
+    user-select: none;
   }
 
   .navbar-links li a:hover {
@@ -172,22 +179,4 @@ main,
     display: none;
   }
 
-  /* Overlay */
-  .sidebar-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 1050;
-  }
-
-  .sidebar-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
 }
