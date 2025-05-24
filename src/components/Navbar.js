@@ -1,22 +1,46 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   const toggleMenu = () => setIsOpen(prev => !prev);
   const closeMenu = () => setIsOpen(false);
 
   const links = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/skills', label: 'Skills' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/certifications', label: 'Certifications' },
-    { path: '/coding', label: 'Coding' },
-    { path: '/contact', label: 'Contact' },
+    { href: '#hero', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#certifications', label: 'Certifications' },
+    { href: '#coding', label: 'Coding' },
+    { href: '#contact', label: 'Contact' },
   ];
+
+  // Scroll handler to set active link
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 120; // Adjust based on your navbar height
+
+      let current = '';
+      for (const { href } of links) {
+        const section = document.querySelector(href);
+        if (section) {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollY >= top && scrollY < top + height) {
+            current = href;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -29,29 +53,26 @@ const Navbar = () => {
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
         >
-          {/* Hamburger icon changes to X when open */}
           {isOpen ? '✕' : '☰'}
         </button>
 
         <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
-          {links.map(({ path, label }) => (
-            <li key={path}>
-              <NavLink
-                to={path}
-                className={({ isActive }) => (isActive ? 'active' : '')}
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <a
+                href={href}
                 onClick={closeMenu}
-                end={path === '/'}
+                className={`navbar-link ${activeSection === href ? 'active' : ''}`}
               >
                 {label}
                 <span className="underline"></span>
-              </NavLink>
+              </a>
             </li>
           ))}
         </ul>
       </nav>
 
-      {/* Overlay to close sidebar when clicked outside */}
-      {isOpen && <div className="sidebar-overlay" onClick={closeMenu} />}
+      {isOpen && <div className="sidebar-overlay open" onClick={closeMenu} />}
     </>
   );
 };

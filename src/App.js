@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,18 +11,30 @@ import './components/styles.css';
 
 function App() {
   return (
-    <Router>
+    <div>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/certifications" element={<Certifications />} />
-        <Route path="/coding" element={<Coding />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </Router>
+      <section id="hero">
+        <Hero />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="skills">
+        <Skills />
+      </section>
+      <section id="projects">
+        <Projects />
+      </section>
+      <section id="certifications">
+        <Certifications />
+      </section>
+      <section id="coding">
+        <Coding />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
+    </div>
   );
 }
 

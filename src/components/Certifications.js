@@ -4,6 +4,11 @@ import "./Certifications.css";
 
 const certsData = [
   {
+    title: "Cloud Computing - NPTEL (2025)",
+    downloadLink: "/certificates/Cloud_Computing.pdf",
+    category: "NPTEL",
+  },
+  {
     title: "Operating System - NPTEL (2024)",
     downloadLink: "/certificates/Operating Systems.pdf",
     category: "NPTEL",
