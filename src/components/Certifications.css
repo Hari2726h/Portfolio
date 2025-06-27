@@ -1,0 +1,126 @@
+:root {
+  --cert-purple: #6a11cb;
+  --cert-blue: #2575fc;
+  --cert-gradient: linear-gradient(to right, var(--cert-purple), var(--cert-blue));
+  --cert-bg: linear-gradient(to right, #f3f0ff, #ffffff);
+  --cert-border: rgba(106, 17, 203, 0.25);
+  --cert-shadow: rgba(106, 17, 203, 0.15);
+  --cert-text: #6a11cb;
+  --cert-font: 'Poppins', sans-serif;
+}
+
+.certifications-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--cert-bg);
+  font-family: var(--cert-font);
+  scroll-margin-top: 100px;
+}
+
+.certifications-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--cert-text);
+  margin-bottom: 40px;
+}
+
+.filter-buttons {
+  margin-bottom: 30px;
+}
+
+.filter-buttons button {
+  padding: 10px 20px;
+  margin: 5px;
+  background: var(--cert-gradient);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(106, 17, 203, 0.4);
+}
+
+.filter-buttons button:hover {
+  background: linear-gradient(to right, var(--cert-blue), var(--cert-purple));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.6);
+}
+
+.certifications-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.cert-card-glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid var(--cert-border);
+  box-shadow: 0 12px 30px var(--cert-shadow);
+  border-radius: 14px;
+  padding: 16px;
+  width: 180px;
+  min-height: 160px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card-glass:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(106, 17, 203, 0.35);
+}
+
+.cert-badge {
+  color: var(--cert-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.cert-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-btn-glass {
+  text-decoration: none;
+  background: var(--cert-gradient);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(106, 17, 203, 0.4);
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.download-btn-glass:hover {
+  background: linear-gradient(to right, var(--cert-blue), var(--cert-purple));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.6);
+}
+
+.download-btn-glass:focus-visible {
+  outline: 3px solid var(--cert-blue);
+  outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certifications-container {
+    padding-bottom: 15px;
+  }
+
+  .cert-card-glass {
+    width: 100%;
+    max-width: 250px;
+  }
+}
