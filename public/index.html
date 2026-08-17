@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem('portfolio-theme');
+          var theme = stored === 'light' || stored === 'dark'
+            ? stored
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08090b" />
+    <meta
+      name="description"
+      content="Hariharan C — Software Development Engineer Intern at Kapture CX building AI-powered enterprise systems, with a background in full-stack development using React, Spring Boot, and cloud technologies. Explore projects, skills, and certifications."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hariharan C — SDE Intern @ Kapture CX" />
+    <meta property="og:description" content="Software Development Engineer Intern at Kapture CX building AI-powered enterprise systems, with a background in full-stack development using React, Spring Boot, and cloud technologies." />
+    <meta property="og:image" content="%PUBLIC_URL%/android-chrome-512x512.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hariharan C — SDE Intern @ Kapture CX" />
+    <meta name="twitter:description" content="Software Development Engineer Intern at Kapture CX building AI-powered enterprise systems, with a background in full-stack development using React, Spring Boot, and cloud technologies." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/android-chrome-512x512.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hariharan C",
+        "jobTitle": "Software Development Engineer Intern",
+        "worksFor": { "@type": "Organization", "name": "Kapture CX" },
+        "url": "https://github.com/Hari2726h",
+        "sameAs": [
+          "https://github.com/Hari2726h",
+          "https://www.linkedin.com/in/hariharan-c/",
+          "https://leetcode.com/Hari2726H"
+        ]
+      }
+    </script>
+
+    <title>Hariharan C — Software Engineer Portfolio</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+      <script> window.chtlConfig = { chatbotId: "7132184649" } </script>
+<script async data-id="7132184649" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
+  </body>
+</html>
